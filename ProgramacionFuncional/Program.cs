@@ -21,6 +21,28 @@ add(5, 6);
 Func<int, int, int> mul = (a, b) => a * b;
 show(mul(3, 4).ToString());
 
+// Función de orden superior: pueden recibir funciones como parametros e incluso puede devolver otra funcion
+
+List<int> numbers = [1,2,3,4,5];
+
+List<int> Filter(List<int> list, Func<int, bool> condition)
+{
+    var resultList = new List<int>();
+    foreach (int item in list)
+    {
+        if(condition(item))
+            resultList.Add(item);
+    }
+
+    return resultList;
+}
+
+var numbers2 = Filter(numbers, n => n % 2 == 0);
+foreach (int item in numbers2)
+{
+    Console.WriteLine(item);
+}
+
 Func<int, int, string> mulString = (a, b) =>
 {
     var res = a * b;
