@@ -14,6 +14,20 @@ Action<string> hi = name => Console.WriteLine($"Hola {name}");
 hi("David");
 Action<int, int> add = (int a, int b) => show((a + b).ToString());
 add(5, 6);
+
+
+// Func: siempre va a retornar algo, SIEMPREEE
+// El tipo de dato, final definido es el q retornara
+Func<int, int, int> mul = (a, b) => a * b;
+show(mul(3, 4).ToString());
+
+Func<int, int, string> mulString = (a, b) =>
+{
+    var res = a * b;
+    return res.ToString();
+};
+show(mulString(5,8));
+
 // Funcion NO PURA
 DateTime Tomorrow()
 {
