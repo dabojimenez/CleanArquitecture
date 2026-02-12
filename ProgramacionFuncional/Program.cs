@@ -43,6 +43,27 @@ foreach (int item in numbers2)
     Console.WriteLine(item);
 }
 
+
+// Tipo Predicate: siempre devuelve un valor bolenao y solo recibe un parametro
+Predicate<int> condition = x => x % 2 == 0;
+Predicate<int> condition2 = x => x > 5;
+List<int> FilterPre(List<int> list, Predicate<int> condition)
+{
+    var resultList = new List<int>();
+    foreach (int item in list)
+    {
+        if (condition(item))
+            resultList.Add(item);
+    }
+
+    return resultList;
+}
+
+var ww = FilterPre(numbers, condition);
+var ee = FilterPre(numbers, condition2);
+ww.ForEach(i => Console.WriteLine(i));
+ee.ForEach(i => Console.WriteLine(i));
+
 Func<int, int, string> mulString = (a, b) =>
 {
     var res = a * b;
