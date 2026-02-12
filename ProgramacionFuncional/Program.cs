@@ -9,6 +9,11 @@ Console.WriteLine(t(new DateTime(2024, 5, 5, 00, 00, 00)));
 Action<string> show = Console.WriteLine;
 show("hola");
 
+// Funciones flecha o lambda
+Action<string> hi = name => Console.WriteLine($"Hola {name}");
+hi("David");
+Action<int, int> add = (int a, int b) => show((a + b).ToString());
+add(5, 6);
 // Funcion NO PURA
 DateTime Tomorrow()
 {
